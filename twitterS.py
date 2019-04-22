@@ -45,11 +45,11 @@ data_Music = data.loc[data.prime_genre == 'Music']
 data_Book = data.loc[data.prime_genre == 'Book']
 
 ################################################## Twitter ########################################################
-
-consumer_key = 'eGrW9GyhCtJeA48LsP0GLZzY4'
-consumer_secret = 'D7Pl1MrTLlyX9Q58XLdARjDZwYHyas9VSeh6WvaJLaecXXgnWB'
-access_token = '1025573849725906944-Hqg0ccKbYFSdJraSRB73vUSBqYiX6u'
-access_token_secret = 'vwD8dPazpJtkBInUj4QZrjsfx6LojLsMhBKNfaWWn6cIy'
+# adcione as chaves necessárias
+consumer_key = '-----------------'
+consumer_secret = '--------------------'
+access_token = '-----------------------------'
+access_token_secret = '-------------------------------'
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
@@ -81,7 +81,7 @@ DataN.to_csv('arquivoCog.csv', columns= ['id', 'track_name', 'n_citacoes',
 #Conexao com o Banco
 con = pymysql.connect(host = 'localhost',
                       user = 'root',
-                      password = 'sync540n',
+                      password = '***************', #adcione a senha
                       database = 'cognitivo_db')
 cursor = con.cursor()
 
