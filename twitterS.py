@@ -13,7 +13,7 @@ def citacoes(dataset, data):
     for categoria in dataset.track_name:
         # contagem de twitts
         cont_twitts = 1
-        #
+        #Busca Todos os twitters a partir da data atual
         for tweet in tweepy.Cursor(twitter.search, q=categoria, count=100,
                                    result_type='recent', since=data).items():
 
