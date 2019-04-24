@@ -7,9 +7,9 @@ from datetime import date
 
 
 def citacoes(dataset, data):
+
     n_lista = []
     cnt = 0
-
     for categoria in dataset.track_name:
         # contagem de twitts
         cont_twitts = 1
@@ -40,12 +40,12 @@ data = pd.read_csv('AppleStore.csv')
 dataNews = data.loc[data.prime_genre == 'News']
 News = dataNews[dataNews.rating_count_tot == dataNews.rating_count_tot.max()]
 
-#Dataset apenas com as músicas e livros
+#Dataset apenas com as musicas e livros
 data_Music = data.loc[data.prime_genre == 'Music']
 data_Book = data.loc[data.prime_genre == 'Book']
 
 ################################################## Twitter ########################################################
-# adcione as chaves necessárias
+# adcione as chaves necessarias
 consumer_key = '-----------------'
 consumer_secret = '--------------------'
 access_token = '-----------------------------'
@@ -58,16 +58,16 @@ auth.set_access_token(access_token, access_token_secret)
 twitter = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
 data = date.today()
 
-# Open/Create a file to append data
+# Abrir/Criar um arquivo para gravar dados
 csvFile = open('twitters.csv', 'a')
 csvWriter = csv.writer(csvFile)
 csvWriter.writerow(['Data_de_Criacao ','Textos'])
 
-#Busca de Citaçoes
+#Busca de Citacoes
 data_Music['n_citacoes'] = citacoes(data_Music, data)
 data_Book['n_citacoes'] = citacoes(data_Book, data)
 
-#Ordenando os Dados de acordo com o Numero de Citaçoes
+#Ordenando os Dados de acordo com o Numero de Citacoes
 data_nB = data_Book.sort_values('n_citacoes', ascending=False)
 data_nM = data_Music.sort_values('n_citacoes', ascending=False)
 
