@@ -85,6 +85,11 @@ con = pymysql.connect(host = 'localhost',
                       database = 'cognitivo_db')
 cursor = con.cursor()
 
+#Cria a tabela no banco de dados
+cursor.execute("CREATE TABLE citacoes (id int primary key, track_name varchar(255),\
+                        n_citacoes int, size_bytes int, price double, prime_genre varchar(20));")
+
+
 #Lendo o arquivo CSV
 arquivo = csv.DictReader(open("arquivoCog.csv", encoding='utf-8'))
 
